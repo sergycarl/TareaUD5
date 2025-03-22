@@ -1,0 +1,865 @@
+
+/* Creamos el estilo que tendran la dos páginas, home y talleres y la parte especifica de home*/
+
+html{
+    padding: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.principal{
+
+     
+    
+    background-color:#FEFCDB;
+    width: 100%;
+    height:auto;
+    
+
+
+}
+
+/* Aqui crearemos el estilo para añadir una fotografia de fondo al titulo y añadiremos los elementos 
+   como el carrito de la compra, elementos de la barra de navegación.. situandolos con la propiedad grid*/
+
+.fondoTitulo{
+
+    
+    width: 100%;
+    height: 840px;
+    display: grid;
+    background-image: url("../img/la-ceramica.jpg");
+    background-size: cover;
+    background-position: center;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+}
+
+    /* El encabezado en formato tablet tendra una ancura del 100% pero la altura la haremos mas pequeña que en el formato
+       desktop*/
+
+
+ .tablet .fondoTitulo{
+
+    
+    width: 100%;
+    height: 200px;
+
+}
+
+
+/*El titulo principal será responsive ya que siempre tendra como tamaño un 7% de la anchura de la pantalla*/
+
+h1{
+
+    
+    font-size: 7vw;
+    color: #3b241d;
+ 
+    
+    
+}
+
+/* El encabezamiento tendra una anchura de pantalla completa y una altura auto*/
+
+
+header{
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* Damos estilo a la barra de navegación colocando los elementos en linea y eliminando la linea inferior */
+
+.navegacion li
+{
+   list-style-type: none;
+   display: inline;
+   padding-right: 4%;
+   
+}
+/*  Los elementos de navegacion ocuparan siempre el 50% de la anchura del viewport y los colocaremos 
+    en la cuadricula de 6x12 que hemos creado con grid */
+
+.navegacion{
+
+    width: 50vw;
+    grid-column-start: 5;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: auto;
+}
+/* Colocamos el icono del carrito de la compra */
+
+ #carrito{
+
+    grid-column-start: 10;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    padding-top: 8%;
+    margin: auto;
+
+}
+
+/* Colocamos el icono de la empresa */
+
+#icono{
+
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 1;
+    padding-top: 8%;
+    margin: auto;
+    width: 50%;
+
+}
+
+  /* Colocamos el numero de productos que hay en el carrito de la compra */
+
+
+
+.productos{
+
+    grid-column-start: 11;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    padding-top: 8%;
+    margin: auto;
+    color: white;
+    font-size: 1.5vw;
+
+}
+
+
+ /* Le damos estilo a la barra de navegacion */
+
+
+.navegacion ul li a, .navegacion img, .ayudaNavegacion a, .principioPagina a , button a{
+
+    text-decoration: none;
+    color: white;
+    font-size: 2vw;
+    
+ 
+    
+    /* Colocamos el titulo prncipal y le damos estilo */
+}
+
+h1{
+
+    
+    font-size: 7vw;
+    color: #3b241d;
+    grid-column-start: 5;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    
+    
+}
+
+ /* Medidas para el carrito de la compra */
+
+#carrito{
+
+    width: 50%;
+    height: auto;
+
+}
+
+ /* Estilo y tamaño de la seccion donde se describe la empresa */
+
+.descripcion{
+
+    background-color: #fff0bc;
+    width: 100%;
+    height: auto;
+}
+
+    /* Le damos estilo y tamaño a los titulo de cada seccion,  aplicamos la funcion clamp donde al hacer responsive 
+       nos escalara el tamaño entre un minimo, primer valor, un tamaño ideal segundo valor y un tercer valor que será
+       el tamaño maximo */
+
+.descripcion h2, .tienda h2, .cursos h2, .cursosYtalleres h2, .inscripcion h2{
+
+    padding: 2%;
+    font-size: clamp(2.5rem, 2vw, 3rem);
+    text-align: center;
+}
+
+    /*Le damos estilo al párrafo que muestra la descripción de la empresa. Aplicaremos a todos los textos 
+      la función clamb para hacer la fuente responsive*/
+
+.descripcion p{
+
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    text-align: center;
+    padding: 0% 2% 2% 2%;
+    color: #57372D;
+}
+
+.extra{
+    display: none; /* Inicialmente oculto */
+ 
+}
+
+
+input[type="checkbox"] {
+    display: none;
+  }
+  
+ .extra:has( ~ input[type="checkbox"]:checked) {
+    display: block;
+  }
+
+  .btn-leer-mas:has( ~ input[type="checkbox"]:checked) {
+    display: none;
+  }
+
+.btn-leer-mas {
+  
+    background-color: #3b241d;
+    border-radius: 5% / 5%;
+    width:clamp(16vw, 18vw, 20vw);
+    height:clamp(1%, 5%, 10%);
+    color: white;
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    position:relative;
+    left: 70%;
+    bottom: 2%;
+}
+
+.btn-leer-mas:hover {
+    color: #0056b3;
+}
+
+.leer-mas-checkbox:checked + .btn-leer-mas  {
+    background-color: #1f2e24;
+    
+    
+}
+
+    /* Añadimos estilo a los botones y con la función clamb hacemos que el tamaño se escale entre un max y un min
+       tanto la altura como la anchura*/
+
+.descripcion button, .tienda button, .curso button{
+
+    background-color: #3b241d;
+    border-radius: 5% / 5%;
+    width:clamp(16vw, 12vw, 18vw);
+    height:clamp(1%, 5%, 10%);
+    color: white;
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    position:relative;
+    left: 70%;
+    bottom: 2%;
+}
+
+.tienda {
+
+    width: 100%;
+    height:auto;
+    background-color: #FEFCDB;
+}
+
+/* Tamaño y color de fondo de la seccion de cursos */
+
+.cursos{
+
+    width: 100%;
+    height: 1548px;
+    background-color: #fff0bc;
+}
+
+/* Estilo del pie de página */
+
+footer{
+
+
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+
+footer p{
+
+    font-size: clamp(.5rem, 2vw, 1rem); 
+}
+
+
+ /* Hacemos que los elementos de la barra de navegación se muestren de color azul al pasar con el ratón por encima */
+ 
+ nav li a:hover{
+
+    color: blue;
+}
+
+button a:hover{
+
+    color: blue;
+}
+
+.card{
+
+    width: 25%;
+    height: 400px;
+    background-color: #FFF0BC;
+    border: 1px solid  #3b241d;
+    border-radius: 2%;
+    display: inline-block;
+    margin: 3%;
+    padding: .5%;
+}
+
+
+
+.imagen p, .cursos p {
+
+    font-size: 2rem;
+    text-align: center;
+    padding: 0% 2% 2% 2%;
+    color: #57372D;
+}
+
+.imagen img{
+
+   display: block;
+   margin: auto;
+   
+}
+
+.cards p{
+
+
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    text-align: center;
+    padding: 0% 2% 2% 2%;
+    color: #57372D;
+}
+
+.cards {
+
+    height: auto;
+}
+
+/* Para los iconos del footer aplicaremos la propiedad flex para colocarlos todos en fila y separados entre ellos con
+   space-around */
+
+.contenedorIconos{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 100px;
+    margin: auto;
+}
+
+/* Lo mismo que hemos hecho con los iconos lo hacemos con el texto inferior condicions, aviso legal.... */
+
+.contenedorCondiciones{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    align-items: center;
+}
+
+
+.contenedorCondiciones p {
+
+color: white;
+
+}
+
+.fotoCursos{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ayudaNavegacion{
+
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+
+
+.ayudaNavegacion button , .bloques .bloque1 .inscribirseBoton #inscribirse-btn, .bloques .bloque2 .inscribirseBoton #inscribirse-btn1{
+
+    background-color: #3b241d;
+    border-radius: 10px;
+    height: auto;
+    width:15vw;
+    color: white;
+    font-size: clamp(1rem, 2vw, 3rem);
+    bottom: 2%;
+    width: 40%;
+    margin:auto;
+    
+
+}
+
+.principioPagina button{
+
+    
+    background-color: #3b241d;
+    border-radius: 10px;
+    height: auto;
+    width:15vw;
+    color: white;
+    font-size: clamp(1rem, 2vw, 3rem);
+    bottom: 2%;
+    width: 40%;
+    margin:auto;
+
+}
+
+.principioPagina{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.principioPagina a:hover{
+
+    color: rgb(87, 87, 236);
+}
+
+.ayudaNavegacion a:hover{
+
+    color: rgb(87, 87, 236);
+}
+
+
+/* A partir de aqui haremos el estilo especifico para la pagina de talleres */
+
+
+
+.fotoTalleres{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
+}
+
+.bloques{
+
+    width: 90%;
+    height: auto;
+    margin: auto;
+    padding: 4% 2% 2% 2%;
+}
+
+
+.bloque1, .bloque2{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    padding: 2%;
+    
+   
+}
+
+.bloque1 p{
+
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    text-align: center;
+    color: #57372D;
+   
+}
+
+.bloque2 p{
+
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    text-align: center;
+    color: #57372D;
+}
+
+.parrafo1 p{
+
+    padding: 0% 3% 0% 10%;
+    font-size: clamp(1.2rem, 2vw, 3rem);
+
+}
+
+.parrafo2 p{
+
+    padding: 0% 10% 0% 0%;
+    font-size: clamp(1.2rem, 2vw, 3rem);
+}
+
+
+.articulo{
+
+
+    margin: auto;
+    background-color: #F05A28;
+    width: 88%;
+    border-radius: 1%;
+    height: auto;
+
+
+}
+
+.articulo h2, .inscripcion h2 {
+
+    color: white;
+    text-align: center;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+   
+    
+}
+
+
+
+.articulo p{
+
+    padding: 1% 9% 9% 9%;
+    text-align: center;
+    color: white;
+    font-size: clamp(1rem, 2vw, 3rem);
+}
+
+
+.inscripcion{
+
+    margin: auto;
+    width: 88%;
+    background-color: #807D7968;
+    height: auto;
+    padding-bottom: 10%;
+    margin-bottom: 8%
+    
+    
+}
+
+.busquedaTienda{
+
+
+    width: 80%;
+    background:url("../img/juegos\ de\ tazas.jpg ");
+    margin: auto;
+    height: 85%;
+    
+}
+.formulario{
+
+
+    width: 80%;
+    background-color: #7D7968;
+    margin: auto;
+    height: 85%;
+    padding: 40px 20px;
+    
+}
+
+.busquedaTienda table{
+
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: clamp(1rem, 2vw, 3rem);
+    width: 75%;
+
+}
+
+.busquedaTienda input{
+
+    width: 75%;
+    
+
+}
+
+
+
+
+/* Hacemos los botones del formulario responsive de forma que se vayan escalando entre el max y el min a medida
+   que cambia la anchura de la pantalla */
+
+#enviar, #borrar{
+
+   
+
+    background-color: rgb(241, 145, 145);
+    width: 40%;
+    height: 50px;
+    font-size: clamp(1rem, 2vw, 3rem);
+    color: black;
+    border-radius: 4px;
+}
+
+#cancelar, #buscar{
+
+    background-color: rgb(96, 240, 96);
+    width: 40%;
+    height: 50px;
+    font-size: clamp(1rem, 2vw, 3rem);
+    color: black;
+    border-radius: 4px;
+   
+}
+
+/* Creamos el estilo para el menu colapsado en formato movil */
+
+#menu {
+	text-align: center;
+	font-size: 0.7em;
+	width: 540px;
+	margin: 10px auto;
+}
+
+#menu ul {
+	list-style-type: none;
+}
+
+#menu ul li {
+	width: 5%px;
+}
+
+#menu ul li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	background-color: rgb(219, 168, 126);
+	border: solid 1px #fff;
+	padding: 8px;
+	position: relative;
+}
+
+#menu ul li ul li a {
+	width: 120px;
+	padding: 10px 10px ;
+	border-top-color: transparent;
+}
+
+#menu ul li ul {
+	display: none;
+}
+
+#menu ul li ul li ul li a.primera {
+	border-top-color: #fff;
+}
+
+#menu ul li.nivel1 { 
+	float: left;
+	margin-right: 1px;
+}
+
+#menu ul li a.nivel1 {
+	color: #000;
+}
+
+#menu ul li a.nivel1 {
+	display: block;
+	position: relative;
+}
+
+#menu ul li:hover {
+	position: relative;
+}
+
+#menu ul li a:hover, #menu ul li:hover a.nivel1 {
+	background-color: rgb(226, 120, 50);
+	color: #000;
+	position: relative;
+}
+
+#menu ul li:hover  ul.nivel2, #menu ul li a:hover {
+	display: block;
+	position: absolute;left: -10px;
+}
+
+
+
+#menu ul li ul li a:hover {
+	border-top-color: #000;
+	position: relative;
+}
+
+
+
+
+/* Aplicamos las medias query*/
+
+/* Primero para el encabezado*/
+
+@media (min-width: 1200px){
+
+    /* Hacemos que solamente se muestre el encabezado desktop con la propiedad display en none en tablet y phone */
+
+    .tablet{
+
+        display:none;
+    }
+
+    .phone{
+        display: none;
+    }
+
+  
+}
+
+@media (min-width: 700px) and (max-width: 1200px){
+
+    /* Hacemos que solamente se muestre el encabezado tablet con la propiedad display en none en header y phone */
+
+	header{
+
+        display: none;
+		
+	}
+
+    .tablet{
+
+        width: 100%;
+        height: 200px;
+    }
+
+    .tablet h1{
+
+        text-align: center;
+        font-size: 5vw;
+        margin: auto;
+    }
+
+    /* Aumentamos el tamaño de las tarjetas para que se muestren en una única columna */
+    
+    .card{
+
+        width: 40%;
+    }
+
+    .phone{
+
+        display: none;
+    }
+
+    section p{
+
+        font-size: clamp(1.2rem, 2vw, 3rem);
+      
+    }
+}
+
+@media (max-width:690px){
+
+
+    .tablet{
+
+        display: none;
+    }
+
+    header{
+
+        display:none;
+    }
+
+    .phone .fondo{
+
+        background-color: #7c5346;
+        width: 100%;
+        height: 120px;
+        
+        
+    }
+
+    /* Estilo y posicionamiento del titulo */
+
+    .phone h1{
+
+        
+        text-align: center;
+        color: white;
+        margin: auto;
+        padding-top: 20px;
+        
+        
+
+    }
+
+    .phone #carrito{
+
+        width: 5%;
+        height: auto;
+        float: right;
+        padding-right: 5%;
+        padding-top: 2%;
+    }
+
+     /* Estilo y posicion de la barra de búsqueda del encabezado */
+
+    .busqueda{
+
+        
+        float: right;
+        padding-top: 15px;
+        display: flex;
+        flex-direction: row;
+      
+        
+    }
+
+    #busqueda input{
+
+        background-color: #FEFCDB;
+        width: 12px;
+        
+    }
+    #busqueda button{
+
+        background-color: #FEFCDB;
+        width: 12%;
+        
+    }
+
+  .card{
+
+    width: 80%;
+     display: flex;
+     justify-content: center;
+
+    
+  }
+
+  .bloque1, .bloque2{
+
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+
+   
+  .bloque1 img, .bloque2 img{
+
+    width: 80%;
+    margin: auto;
+  }
+
+  
+
+  footer{
+
+    height: auto;
+  }
+
+}
